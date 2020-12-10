@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+
+
+
+   <h1></h1>
+<div class="container">
+    <div class="row justify-content-around">
+        <% campgrounds.forEach(campground=>{ %>
+        <div class="col-sm-5 my-4 mx-2">
+          <div class="card text-dark ">
+            <img src="<%= campground.image %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= campground.title %></h5>
+              <h6 class="btn btn-success"><%= campground.price %>/- INR</h6>
+              <p class="card-text"><%= campground.description.substr(0,100) %></p>
+              <a href="campgrounds/<%= campground._id %>" class="btn btn-primary">More Details</a>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+        
+      </div>
+    
+</div>
+
+
+
+<%- include('partials/footer') %>
