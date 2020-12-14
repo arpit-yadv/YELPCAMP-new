@@ -1,9 +1,11 @@
-<%- include('partials/header') %>
+<%- include('partials/header') %> 
 
+<div class="container-fluid  justify-content-center">
+  <h1 class="text-center">Welcome to the India's best collection of trekking locations</h1>
+  <a href="/campgrounds/new" class="btn btn-lg btn-success m-2">Add New campground</a>
+</div>
 
-
-
-   <h1></h1>
+   
 <div class="container">
     <div class="row justify-content-around">
         <% campgrounds.forEach(campground=>{ %>
@@ -14,7 +16,7 @@
               <h5 class="card-title"><%= campground.title %></h5>
               <h6 class="btn btn-success"><%= campground.price %>/- INR</h6>
               <p class="card-text"><%= campground.description.substr(0,100) %></p>
-              <a href="campgrounds/<%= campground._id %>" class="btn btn-primary">More Details</a>
+              <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Details</a>
             </div>
           </div>
         </div>

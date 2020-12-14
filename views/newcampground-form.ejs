@@ -1,23 +1,29 @@
 <%- include('partials/header') %>
 
 
+
+
 <div class="container">
-    <form action="" method="POST">
+    <form class="needs-validation" action="/campgrounds" method="POST" novalidate>
         <div class="form-group">
           <label for="trekTitle">Title of the Trek</label>
-          <input class="form-control" id="trekTitle" aria-describedby="emailHelp" required>
+          <input class="form-control" name="campground[title]" id="trekTitle" aria-describedby="emailHelp" required>
+        </div>
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input class="form-control" name="campground[image]" id="image" required>
         </div>
         <div class="form-group">
           <label for="location">Location</label>
-          <input class="form-control" id="location" required>
+          <input class="form-control" name="campground[location]" id="location" required>
         </div>
         <div class="form-group">
           <label for="price">Price of the Trek Package</label>
-          <input type="number" class="form-control" id="price" required>
+          <input type="text" name="campground[price]" class="form-control" id="price" required>
         </div>
         <div class="form-group">
             <label for="description">Description of the Trek</label>
-            <textarea name="description" class="form-control" id="description" cols="30" rows="3" required></textarea>
+            <input  name="campground[description]" class="form-control" id="campground[description]" cols="30" rows="3" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

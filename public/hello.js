@@ -1,0 +1,1 @@
+console.log('thisis public directory');

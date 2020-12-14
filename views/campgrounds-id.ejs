@@ -6,13 +6,44 @@
         <img src="<%= campground.image %>" class="img-fluid m-3 rounded " alt="Responsive image">
         <div class="card-body">
           <h5 class="card-title"><%= campground.title %></h5>
-          <a href="/campgrounds/<%=campground._id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/campgrounds" class="btn btn-danger">Delete</a>
+          <a href="/campgrounds/<%=campground._id%>/edit" class="btn btn-warning">Edit</a>
+          <form action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-danger">Delete</button>
+          </form>
+          
           <p class="card-text"><%= campground.price %>/- INR</p>
           <p class="card-text"><%= campground.description %></p>
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
     </div>
+    <form action="/campgrounds/<%=campground._id%>/review" method="POST">
+      <h5>Write a Review</h5>
+      <div class="form-group">
+        <label for="formControlRange">Rating</label>
+        <input type="range" name="review[rating]" class="form-control-range" min="1" max="10" id="formControlRange">
+      </div>
+      <div class="form-group">
+        <label for="Review">Review</label>
+        <textarea type="text" name="review[review]" class="form-control-range mb-4" rows="3" cols="50" id="Review"></textarea>
+      </div>
+      <button class="btn btn-success mb-4">Submit</button>
+    </form>
+    <% campground.reviews.forEach((review)=>{ %>
+
+      <div class="card bg-dark">
+        <div class="card-header">
+          Rating - <%= review.rating %>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><%= review.review %></p>
+          <form action="/campgrounds/<%=campground._id %>/review/<%=review._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-danger">Delete</button>
+          </form>
+          
+        </div>
+      </div>
+     
+   <% })%>
 </div>
 
 
