@@ -6,7 +6,7 @@ let initialData = [
 		title: "BRAHMATAL TREK",
 		image:
 			"https://indiahikes.com/wp-content/uploads/2018/07/Copy-of-Brahmatal-GajendraKumar-Serene-Brahmatal.jpg",
-		price: 12500,
+        price: 12500,
 		location: "Lohajung,Uttrakhand",
 		description: `Some of our top treks are favourites because of the mountain views they offer. Think of Chaukhambha from Deoriatal Chandrashila or Bandarpoonch from Dayara Bugyal. It is difficult to find such magnified views of big mountains like these. However, Brahmatal is a trek that takes the cake. It has a view that beats all of these!
 
@@ -144,6 +144,7 @@ let initialData = [
 
 function seed(){
     initialData.forEach((campground) => {
+        campground.author = '5fd8690cf8e0e835a07696bf';
         let campinfo = new Campground(campground);
         campinfo.save()
             .then((data) => {

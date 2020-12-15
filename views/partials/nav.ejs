@@ -1,0 +1,18 @@
+
+<nav class="navbar navbar-dark bg-info">
+      <a href="/" class="navbar-brand">Trekking Sites in India</a>
+      <div>
+        <a href="/campgrounds" class="navbar-toggler nav-link text-white d-inline">Campgrounds</a> 
+        <a href="/campgrounds/new" class="nav-item nav-link text-white d-inline">New Campground</a> 
+      </div>
+      
+      <div >
+        <%if(!currentUser){%>
+          <a class="nav-item nav-link text-white d-inline" href="/login">Login</a>
+          <a class="nav-item nav-link text-white d-inline" href="/register">Register</a>
+        <%}else{%>
+          
+          <a class="nav-item nav-link text-white d-inline" href="/logout">Logout</a>
+      </div>
+      <%}%>
+    </nav>
