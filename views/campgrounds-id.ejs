@@ -46,7 +46,7 @@
         <div class="card-body">
           <h6 class="card-subtitle">By <%=review.author.username%></h6>
           <p class="card-text"><%= review.review %></p>
-          <%if(currentUser && currentUser._id.equals(review.author)){ %>
+          <%if(currentUser && currentUser._id.equals(review.author._id)){ %>
             <form action="/campgrounds/<%=campground._id %>/review/<%=review._id%>?_method=DELETE" method="POST">
               <button class="btn btn-danger">Delete</button>
             </form>
