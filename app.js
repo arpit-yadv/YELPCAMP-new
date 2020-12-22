@@ -155,7 +155,7 @@ app.use((err, req, res, next) => {
 	res.status(status).render('error',{error:err});
 });
 
-const port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 app.listen(port, () => {
-	console.log("Serving on the port localhost:3000");
+	console.log("Serving on the port ${port}");
 });
