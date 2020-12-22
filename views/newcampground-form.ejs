@@ -5,14 +5,15 @@
 
 
 <div class="container">
-    <form class="needs-validation" action="/campgrounds" method="POST" novalidate>
+    <form class="needs-validatio  " action="/campgrounds" method="POST" novalidate enctype="multipart/form-data">
         <div class="form-group">
           <label for="trekTitle">Title of the Trek</label>
           <input class="form-control" name="campground[title]" id="trekTitle" aria-describedby="emailHelp" required>
         </div>
         <div class="form-group">
-          <label for="image">Image</label>
-          <input class="form-control" name="campground[image]" id="image" required>
+          <input type="file" name="image" id="" multiple>
+          <!-- <label for="image">Image</label>
+          <input class="form-control" name="campground[image]" id="image" required> -->
         </div>
         <div class="form-group">
           <label for="location">Location</label>
@@ -40,10 +41,6 @@
 
 
 
-
-
-
-
-
+<script src="/javascripts/validateForms.js"></script>
 
 <%- include('partials/footer') %>

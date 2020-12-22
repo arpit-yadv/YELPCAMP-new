@@ -142,22 +142,101 @@ let initialData = [
 	},
 ];
 
-function seed(){
-    initialData.forEach((campground) => {
-        campground.author = '5fd8690cf8e0e835a07696bf';
-        let campinfo = new Campground(campground);
-        campinfo.save()
-            .then((data) => {
-                console.log(`${data.title} campground added succesfully`);
-            })
-            .catch((e) => {
-                console.log("Error adding campground");
-                console.log(err);
-            });
-    });
+const sample = array => array[Math.floor(Math.random() * array.length)];
+
+
+const seedDB = async () => {
+    // await Campground.deleteMany({});
+    for (let i = 0; i < 20; i++) {
+        const random25 = (Math.random() * 25)+8;
+        const random85 = (Math.random() * 25)+70;
+        const price = Math.floor(Math.random() * 10000) + 5000;
+        const camp = new Campground({
+            //YOUR USER ID
+            author: '5fd8690cf8e0e835a07696bf',
+            location: initialData[Math.floor(Math.random()*5)].location,
+            title: initialData[Math.floor(Math.random()*5)].title,
+            description: initialData[Math.floor(Math.random()*5)].description,
+            price,
+            geometry: {
+                type: "Point",
+                coordinates: [
+                    random85,
+                    random25,
+                ]
+            },
+            images: [
+                {
+                    url: 'https://res.cloudinary.com/arpityadav/image/upload/v1608229538/YelpCamp/Brahmatal-Neerav-Mehta-Magnificient-Brahmatal-Lake-1800x1200_wcobal.jpg',
+                    filename: 'Brahmatal-Neerav-Mehta-Magnificient-Brahmatal-Lake-1800x1200_wcobal'
+                },
+                {
+                    url: 'https://res.cloudinary.com/arpityadav/image/upload/v1608229537/YelpCamp/On-the-way-from-Chopta-to-Tungnath-Bhujgali-Yogesh-Shinde_z5t6bw.jpg',
+                    filename: 'YelpCamp/16_cwqkmn'
+                },
+                {
+                    url: 'https://res.cloudinary.com/arpityadav/image/upload/v1608229537/YelpCamp/Sandakphu-Phalut-trek-Indiahikes-Subro-Das-Phalut_ibsmt9.jpg',
+                    filename: 'YelpCamp/X90A0350_anlhxy'
+                },
+                {
+                    url: 'https://res.cloudinary.com/arpityadav/image/upload/v1608229537/YelpCamp/Sandakphu-Phalut-trek-Indiahikes-Subro-Das-Phalut_ibsmt9.jpg',
+                    filename: 'YelpCamp/30_rypx2k'
+                },
+                {
+                    url: 'https://res.cloudinary.com/arpityadav/image/upload/v1608229537/YelpCamp/Brahmatal-Karthik-Maddineni-Indiahikes-2_s7wy8z.jpg',
+                    filename: 'YelpCamp/37_dphmyy'
+                },
+                {
+                    url: 'https://res.cloudinary.com/arpityadav/image/upload/v1608229537/YelpCamp/Sandakphu-Phalut-trek-Indiahikes-26-2048x1366_wq3vhb.jpg',
+                    filename: 'YelpCamp/4_1_hjt3ji'
+                },
+                {
+                    url: 'https://res.cloudinary.com/arpityadav/image/upload/v1608229536/YelpCamp/Nanda-ghunti-BrahmatalIndiahikes-VishwajeetChavan_avvbym.jpg',
+                    filename: 'YelpCamp/18_j3lpln'
+                },
+                {
+                    url: 'https://res.cloudinary.com/arpityadav/image/upload/v1608229536/YelpCamp/Nanda-ghunti-BrahmatalIndiahikes-VishwajeetChavan_avvbym.jpg',
+                    filename: 'YelpCamp/18_j3lpln'
+                },
+                {
+                    url: 'https://res.cloudinary.com/arpityadav/image/upload/v1608229536/YelpCamp/Jan-Wall-Brahmatal-santhosh-A_abasnl.jpg',
+                    filename: 'YelpCamp/18_j3lpln'
+                },
+                {
+                    url: 'https://res.cloudinary.com/arpityadav/image/upload/v1608229536/YelpCamp/Copy-of-Brahmatal-GajendraKumar-Serene-Brahmatal_s2t3sm.jpg',
+                    filename: 'YelpCamp/18_j3lpln'
+                },
+                {
+                    url: 'https://res.cloudinary.com/arpityadav/image/upload/v1608229536/YelpCamp/Deoriatal-Chandrashila-trek-Yashpal-Indiahikes-December-2019_x7ywtk.jpg',
+                    filename: 'YelpCamp/18_j3lpln'
+                },
+            ]
+        })
+        await camp.save();
+    }
 }
 
-module.exports = seed;
+
+
+
+
+
+// function seed(){
+//     initialData.forEach((campground) => {
+//         campground.author = '5fd8690cf8e0e835a07696bf';
+//         let campinfo = new Campground(campground);
+//         campinfo.save()
+//             .then((data) => {
+//                 console.log(`${data.title} campground added succesfully`);
+//             })
+//             .catch((e) => {
+//                 console.log("Error adding campground");
+//                 console.log(err);
+//             });
+//     });
+// }
+
+module.exports = seedDB;
 
 
 
