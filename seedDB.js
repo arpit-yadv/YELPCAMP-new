@@ -146,14 +146,14 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 
 
 const seedDB = async () => {
-    // await Campground.deleteMany({});
+    await Campground.deleteMany({});
     for (let i = 0; i < 20; i++) {
         const random25 = (Math.random() * 25)+8;
         const random85 = (Math.random() * 25)+70;
         const price = Math.floor(Math.random() * 10000) + 5000;
         const camp = new Campground({
             //YOUR USER ID
-            author: '5fd8690cf8e0e835a07696bf',
+            author: '5fe2296d6ee3663d5c93f895',
             location: initialData[Math.floor(Math.random()*5)].location,
             title: initialData[Math.floor(Math.random()*5)].title,
             description: initialData[Math.floor(Math.random()*5)].description,
