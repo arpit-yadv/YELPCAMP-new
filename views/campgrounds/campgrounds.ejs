@@ -16,7 +16,9 @@
         <% campgrounds.forEach(campground=>{ %>
         <div class="col-sm-5 my-4 ">
           <div class="card">
-             <img src="<%= campground.images[Math.floor(Math.random()*(campground.images.length))].profile %>" class='d-inline card-img-top' alt="">            
+          <%if(campground.images[0]){%>
+             <img src="<%= campground.images[Math.floor(Math.random()*(campground.images.length))].profile %>" class='d-inline card-img-top' alt="">   
+             <%}%>
             <div class="card-body text-black-50">
               <h5 class="card-title"><%= campground.title %></h5>
               
